@@ -1,41 +1,35 @@
 import org.junit.Test;
-
-import java.util.ArrayList;
-
 import static org.junit.Assert.*;
 
 public class StudentTest {
+
     @Test
     public void testCreateStudent(){
-        Student fer = new Student(1L, "fer");
-        Student ryan = null;
-        assertNull(ryan);
-        assertNotNull(fer);
+        Student rocco = new Student(1L, "Rocco");
+        Student leonardo = new Student(2L, "Leonardo");
+        assertNotNull(rocco);
+        assertNotNull(leonardo);
     }
 
     @Test
     public void testStudentFields(){
-        Student fer = new Student(1L, "fer");
-        assertSame(1L, fer.getId());
-        assertSame("fer", fer.getName());
-        assertSame(0, fer.getGrades().size());
+        Student rocco = new Student(1L, "Rocco");
+        assertEquals("Rocco", rocco.getName());
+        assertEquals(1L, rocco.getId());
     }
-
 
     @Test
     public void testAddGrade(){
-        Student fer = new Student(1L, "fer");
-        fer.addGrade(100);
-        assertSame(100, fer.getGrades().get(0));
-        fer.addGrade(80);
-        assertSame(80, fer.getGrades().get(1));
+        Student rocco = new Student(1L, "Rocco");
+        rocco.addGrade(95);
+        assertEquals(95, (int)rocco.getGrades().get(0));
     }
 
     @Test
     public void testAverageGrade(){
-        Student fer = new Student(1L, "fer");
-        fer.addGrade(100);
-        fer.addGrade(80);
-        assertEquals(90, fer.getGradeAverage(), 0);
+        Student rocco = new Student(1L, "Rocco");
+        rocco.addGrade(95);
+        rocco.addGrade(85);
+        assertEquals(90.0, rocco.getGradeAverage(), 0);
     }
 }
